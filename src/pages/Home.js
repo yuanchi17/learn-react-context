@@ -1,9 +1,11 @@
-import React, { } from 'react'
+import { DemoContext } from '../context/demoContext'
+import React, { useContext } from 'react'
 
 const Home = () => {
+  const demo = useContext(DemoContext)
   return (
     <>
-      Hi！
+      Hi~ {demo.name}, your number is {demo.number}.
     </>
   )
 }
