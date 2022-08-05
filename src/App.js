@@ -3,7 +3,7 @@ import { BrowserRouter, useRoutes } from 'react-router-dom'
 import { DemoContext } from './context/demoContext'
 import Header from './components/Header'
 import Home from './pages/Home'
-import React from 'react'
+import React, { useState } from 'react'
 import TodoList from './pages/TodoList'
 
 // https://reactrouter.com/docs/en/v6/hooks/use-routes
@@ -13,13 +13,13 @@ const AllRouters = () => useRoutes([
 ])
 
 function App () {
-  const defaultValue = {
-    name: 'default-name',
+  const [user, setUser] = useState({
+    name: 'name-default',
     number: 17,
-  }
+  })
   return (
     <BrowserRouter>
-      <DemoContext.Provider value={defaultValue}>
+      <DemoContext.Provider value={{ user, setUser }}>
         <Header />
         <AllRouters />
       </DemoContext.Provider>

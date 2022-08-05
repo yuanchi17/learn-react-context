@@ -1,9 +1,11 @@
-import React, { } from 'react'
+import React, { useContext } from 'react'
+import { DemoContext } from '../context/demoContext'
 
 const TodoList = () => {
+  const { user } = useContext(DemoContext)
   return (
     <>
-      TodoList
+      {user.name} 的 todo list
     </>
   )
 }
