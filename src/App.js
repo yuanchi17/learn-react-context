@@ -17,9 +17,34 @@ function App () {
     name: 'name-default',
     number: 17,
   })
+
+  const [allTodoList, setAllTodoList] = useState([
+    {
+      id: 'name-default',
+      todo: ['eat'],
+      done: ['run', 'write', 'learn'],
+    },
+    {
+      id: 'name-A',
+      todo: ['eat', 'write'],
+      done: ['run', 'learn'],
+    },
+    {
+      id: 'name-B',
+      todo: ['learn'],
+      done: ['run', 'write'],
+    },
+  ])
+
+  const defaultValue = {
+    user,
+    setUser,
+    allTodoList,
+    setAllTodoList,
+  }
   return (
     <BrowserRouter>
-      <DemoContext.Provider value={{ user, setUser }}>
+      <DemoContext.Provider value={defaultValue}>
         <Header />
         <AllRouters />
       </DemoContext.Provider>
