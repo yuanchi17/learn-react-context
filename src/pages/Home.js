@@ -11,9 +11,11 @@ const Home = () => {
   }
   return (
     <>
+    <div style={{ padding: '0px 15px' }}>
       <p>name：{user.name}</p>
       <p>number：{user.number}</p>
       <button onClick={btnChange}>切換</button>
+    </div>
     </>
   )
 }

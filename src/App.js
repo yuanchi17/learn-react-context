@@ -18,23 +18,20 @@ function App () {
     number: 17,
   })
 
-  const [allTodoList, setAllTodoList] = useState([
-    {
-      id: 'name-default',
+  const [allTodoList, setAllTodoList] = useState({
+    'name-default': {
       todo: ['eat'],
       done: ['run', 'write', 'learn'],
     },
-    {
-      id: 'name-A',
+    'name-A': {
       todo: ['eat', 'write'],
       done: ['run', 'learn'],
     },
-    {
-      id: 'name-B',
+    'name-B': {
       todo: ['learn'],
       done: ['run', 'write'],
     },
-  ])
+  })
 
   const defaultValue = {
     user,
