@@ -18,6 +18,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/prop-types': 0, // https://stackoverflow.com/questions/38684925/react-eslint-error-missing-in-props-validation/64707357#64707357
     'multiline-ternary': 0, // 0 = off, 1 = warn, 2 = error
     'no-return-await': 0, // 0 = off, 1 = warn, 2 = error
     'comma-dangle': ['error', {

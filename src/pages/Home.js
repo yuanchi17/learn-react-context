@@ -2,19 +2,13 @@ import { DemoContext } from '../context/demoContext'
 import React, { useContext } from 'react'
 
 const Home = () => {
-  const { user, setUser } = useContext(DemoContext)
-  const btnChange = () => {
-    setUser({
-      ...user,
-      name: user.name === 'name-A' ? 'name-B' : 'name-A',
-    })
-  }
+  const { user, btnChangeUser } = useContext(DemoContext)
+
   return (
     <>
     <div style={{ padding: '0px 15px' }}>
-      <p>name：{user.name}</p>
-      <p>number：{user.number}</p>
-      <button onClick={btnChange}>切換</button>
+      <p>name：{user}</p>
+      <button onClick={btnChangeUser}>切換</button>
     </div>
     </>
   )

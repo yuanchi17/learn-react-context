@@ -1,9 +1,9 @@
 import './App.css'
 import { BrowserRouter, useRoutes } from 'react-router-dom'
-import { DemoContext } from './context/demoContext'
+import DemoContextProvider from './context/demoContext'
 import Header from './components/Header'
 import Home from './pages/Home'
-import React, { useState } from 'react'
+import React from 'react'
 import TodoList from './pages/TodoList'
 
 // https://reactrouter.com/docs/en/v6/hooks/use-routes
@@ -13,38 +13,12 @@ const AllRouters = () => useRoutes([
 ])
 
 function App () {
-  const [user, setUser] = useState({
-    name: 'name-default',
-    number: 17,
-  })
-
-  const [allTodoList, setAllTodoList] = useState({
-    'name-default': {
-      todo: ['eat'],
-      done: ['run', 'write', 'learn'],
-    },
-    'name-A': {
-      todo: ['eat', 'write'],
-      done: ['run', 'learn'],
-    },
-    'name-B': {
-      todo: ['learn'],
-      done: ['run', 'write'],
-    },
-  })
-
-  const defaultValue = {
-    user,
-    setUser,
-    allTodoList,
-    setAllTodoList,
-  }
   return (
     <BrowserRouter>
-      <DemoContext.Provider value={defaultValue}>
+      <DemoContextProvider>
         <Header />
         <AllRouters />
-      </DemoContext.Provider>
+      </DemoContextProvider>
     </BrowserRouter>
   )
 }
