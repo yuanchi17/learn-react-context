@@ -9,6 +9,7 @@ const TodoList = () => {
 
   return (
     <div style={{ padding: '0px 15px' }}>
+      user: {user}
       <TodoForm />
       <h4>todo：{userList.todo.map((todo, index) => <li key={index}>{todo}</li>)}</h4>
       <h4>done：{userList.done.map((done, index) => <li key={index}>{done}</li>)}</h4>
