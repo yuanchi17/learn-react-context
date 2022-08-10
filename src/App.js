@@ -15,8 +15,8 @@ const AllRouters = () => useRoutes([
 function App () {
   return (
     <BrowserRouter>
+      <Header />
       <DemoContextProvider>
-        <Header />
         <AllRouters />
       </DemoContextProvider>
     </BrowserRouter>
