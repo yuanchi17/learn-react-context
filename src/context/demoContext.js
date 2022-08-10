@@ -1,4 +1,5 @@
-import React, { createContext, useState } from 'react'
+import { demoReducer } from '../reducer/demoReducer'
+import React, { createContext, useReducer, useState } from 'react'
 
 export const DemoContext = createContext(undefined)
 DemoContext.displayName = 'demo-context'
@@ -10,7 +11,7 @@ const DemoContextProvider = props => {
     setUser(user === 'name-A' ? 'name-B' : 'name-A')
   }
 
-  const [allTodoList, setAllTodoList] = useState({
+  const [allTodoList, dispatch] = useReducer(demoReducer, {
     'name-default': {
       todo: ['eat'],
       done: ['run', 'write', 'learn'],
@@ -24,22 +25,11 @@ const DemoContextProvider = props => {
       done: ['run', 'write'],
     },
   })
-
-  const addTodoList = (user, todo) => {
-    const userList = allTodoList[user]
-    console.log(userList)
-    allTodoList[user] = {
-      ...userList,
-      todo: [...userList.todo, todo],
-    }
-    setAllTodoList({ ...allTodoList })
-  }
-
   return (
     <DemoContext.Provider value={{
-      addTodoList,
       allTodoList,
       btnChangeUser,
+      dispatch,
       user,
     }}>
       {props.children}
