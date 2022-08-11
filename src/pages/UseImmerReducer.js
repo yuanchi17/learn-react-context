@@ -13,7 +13,7 @@ const UseImmerReducer = () => {
     switch (action.type) {
       case 'add':
         draft.detail.count++
-        return draft
+        break // 可以 return 也可以直接 break, https://immerjs.github.io/immer/
       case 'reset':
         return initState
     }
